@@ -22,3 +22,15 @@ SAML is used to access browser-based applications and does not support SSO for m
 OIDC is about who someone is. OAuth 2.0 is about what they are allowed to do.
 
 SAML uses tokens written in XML and OIDC uses JWTs, which are portable and support a range of signature and encryption algorithms.
+
+
+How does OIDC work?
+
+OIDC is similar to OAuth where users give one application permission to access data in another application without having to provide their usernames and passwords. Instead, tokens are used to complete both authentication and authorization processes:
+ 
+
+Identity tokens, intended to be read by the client, prove that users were authenticated and are JSON Web Tokens (JWTs), pronounced “jots.” These files contain information about the user, such as their usernames, when they attempted to sign on to the application or service, and the length of time they are allowed to access the online resources.
+
+Access tokens are used to access protected resources, which are intended to be read and validated by the API. These tokens can be JWTs, but might be in a different format. Their purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the scope that has been granted).
+
+ID tokens cannot be used for API access purposes and access tokens cannot be used for authentication. The following diagram shows how a typical OIDC authentication process works.
